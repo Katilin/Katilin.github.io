@@ -14,4 +14,4 @@
 - CompTIA CySA+ 
 
 ## WORK HISTORY
-- Freelance IT/PC Repair Consultant/Volunteer
+- Freelance IT/PC Repair Consultant/Volunteer 
