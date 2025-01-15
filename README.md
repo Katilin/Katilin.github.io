@@ -6,7 +6,7 @@
 
 ## EDUCATION
 - Bachelor of Science (B.S.) in Computer Networking and Cybersecurity
-- University of Maryland Global Campus, Adelphi, MD | December 2022
+- University of Maryland Global Campus
 
 ## CERTIFICATIONS
 - CompTIA Network+ 
