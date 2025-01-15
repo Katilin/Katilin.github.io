@@ -1,3 +1,5 @@
+url: https://y7kim.github.io
+baseurl: /agency-jekyll-theme/
 title: Katherine Ilin
 #logo
 description: Aspiring Cyber Security Analyst
@@ -5,4 +7,4 @@ description: Aspiring Cyber Security Analyst
 #theme: jekyll-theme-minimal-minimal
 #remote_theme: pages-themes/minimal@v0.2.0
 #remote_theme: minimal-mistakes-jekyll
-remote_theme: pages-themes/tactile@v0.2.0
+#remote_theme: pages-themes/tactile@v0.2.0
