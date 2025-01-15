@@ -13,5 +13,5 @@
 - CompTIA Security+ 
 - CompTIA CySA+ 
 
-##WORK HISTORY
+## WORK HISTORY
 - Freelance IT/PC Repair Consultant/Volunteer
