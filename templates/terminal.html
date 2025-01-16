@@ -1,1 +1,96 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Pet Name Generator Terminal</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0f0;
+            font-family: "Courier New", Courier, monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #terminal {
+            width: 80%;
+            height: 70%;
+            overflow-y: auto;
+            border: 1px solid #0f0;
+            padding: 10px;
+        }
+        #input {
+            width: 100%;
+            border: none;
+            background: none;
+            color: #0f0;
+            font-size: 16px;
+            font-family: inherit;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="terminal">
+        <div id="output"></div>
+        <form id="form">
+            <span>&gt; </span><input type="text" id="input" autocomplete="off">
+        </form>
+    </div>
 
+    <script>
+        const form = document.getElementById('form');
+        const input = document.getElementById('input');
+        const output = document.getElementById('output');
+
+        let state = 0;
+        const questions = [
+            "Welcome to the Pet Name Generator! What is your favorite Movie Character?",
+            "What is your favorite activity?",
+            "What is your favorite food brand name?",
+            "Is your Pet male or female? (m/f):"
+        ];
+        const answers = [];
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const userInput = input.value.trim();
+            if (!userInput) return;
+
+            // Display user input
+            output.innerHTML += `&gt; ${userInput}<br>`;
+            input.value = "";
+
+            if (state < questions.length - 1) {
+                // Save the user's answer and ask the next question
+                answers.push(userInput);
+                state++;
+                output.innerHTML += `${questions[state]}<br>`;
+            } else if (state === questions.length - 1) {
+                // Save the last answer (gender) and send the data to the server
+                answers.push(userInput);
+
+                const response = await fetch('/generate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `character=${encodeURIComponent(answers[0])}&activity=${encodeURIComponent(answers[1])}&food_brand_name=${encodeURIComponent(answers[2])}&gender=${encodeURIComponent(answers[3])}`
+                });
+
+                const petName = await response.text();
+                output.innerHTML += `${petName}<br>`;
+                state++;
+            }
+            // Auto-scroll to the bottom of the terminal
+            const terminal = document.getElementById('terminal');
+            terminal.scrollTop = terminal.scrollHeight;
+        });
+
+        // Initial question
+        output.innerHTML += `${questions[state]}<br>`;
+    </script>
+</body>
+</html>
