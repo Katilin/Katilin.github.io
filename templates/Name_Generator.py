@@ -1,7 +1,7 @@
 print("Welcome to the pet name generator")
 character = input("What is your favorite Movie Character? ")
 activity = input("What is your favorite activity? ")
-food_brand_name = input("What is your favorite food brand name? ")
+food_brand_name = input("What is your favorite food? ")
 # Loop until valid gender input is entered
 while True:
     # Get the gender input and convert it to lowercase to make it case-insensitive
